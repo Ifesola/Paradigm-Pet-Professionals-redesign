@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Consultation - Paradigm Pet Professionals</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="page-container">
+        <!-- Navigation -->
+        <nav class="nav">
+            <div class="nav-content">
+                <div class="nav-left">
+                    <div class="nav-logo">
+                        <img src="images/logo.png" alt="Paradigm Pet Professionals Logo">
+                    </div>
+                    <div class="nav-brand-info">
+                        <div class="nav-brand">Paradigm Pet Professionals</div>
+                        <div class="nav-tagline">Evidence-based pet care advice for every pet lover</div>
+                    </div>
+                </div>
+                <div class="nav-links">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="dogs.html" class="nav-link">Dogs</a>
+                    <a href="cats.html" class="nav-link">Cats</a>
+                    <a href="birds.html" class="nav-link">Birds</a>
+                    <a href="consultation.html" class="nav-link active">Consultations</a>
+                </div>
+                <div class="nav-search">
+                    <input type="text" class="nav-search-input" placeholder="Search...">
+                </div>
+            </div>
+        </nav>
+        <!-- Breadcrumbs -->
+        <nav class="breadcrumbs">
+            <ul class="breadcrumbs-list">
+                <li class="breadcrumb-item">
+                    <a href="index.html" class="breadcrumb-link">Home</a>
+                </li>
+                <li class="breadcrumb-item">
+                    <span class="breadcrumb-separator">></span>
+                    <span class="breadcrumb-current">Book a Consultation</span>
+                </li>
+            </ul>
+        </nav>
+        <!-- Page Header -->
+        <header class="page-header page-header-consultation">
+            <div class="page-header-content">
+                <h1 class="page-header-title">Book a Consultation</h1>
+                <p class="page-header-subtitle">Get personalized advice from our pet care experts</p>
+            </div>
+            <div class="hero-image">
+                <img src="images/teams2.png" alt="Team consultation meeting">
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <section class="section">
+            <div class="container" style="max-width: 800px;">
+                <!-- Info Box -->
+                <div class="info-box" style="margin-bottom: 2rem;">
+                    <div class="info-box-title">What to Expect:</div>
+                    <p class="content-text">
+                        Our experienced veterinarians and pet care specialists are here to help. Whether you have questions about nutrition, behavior, health concerns, or general care, we provide personalized guidance tailored to your pet's unique needs.
+                    </p>
+                </div>
+
+                <!-- Consultation Form -->
+                <form id="consultationForm" style="background-color: #fff; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                    <h2 style="margin-bottom: 1.5rem; color: #2C3E50;">Consultation Request Form</h2>
+
+                    <!-- Pet Owner Information -->
+                    <div class="form-group">
+                        <label class="form-label">Your Name <span class="required">*</span></label>
+                        <input type="text" class="form-input" name="ownerName" required placeholder="John Doe">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Email Address <span class="required">*</span></label>
+                        <input type="email" class="form-input" name="email" required placeholder="john@example.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Phone Number <span class="required">*</span></label>
+                        <input type="tel" class="form-input" name="phone" required placeholder="(555) 123-4567">
+                    </div>
+
+                    <!-- Pet Information -->
+                    <h3 style="margin: 2rem 0 1rem; color: #2C3E50; font-size: 1.25rem;">Pet Information</h3>
+
+                    <div class="form-group">
+                        <label class="form-label">Pet Type <span class="required">*</span></label>
+                        <select class="form-select" name="petType" required>
+                            <option value="">Select pet type...</option>
+                            <option value="dog">Dog</option>
+                            <option value="cat">Cat</option>
+                            <option value="bird">Bird</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Pet's Name <span class="required">*</span></label>
+                        <input type="text" class="form-input" name="petName" required placeholder="Buddy">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Pet's Age</label>
+                        <input type="text" class="form-input" name="petAge" placeholder="3 years">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Breed (if applicable)</label>
+                        <input type="text" class="form-input" name="breed" placeholder="Golden Retriever">
+                    </div>
+
+                    <!-- Consultation Details -->
+                    <h3 style="margin: 2rem 0 1rem; color: #2C3E50; font-size: 1.25rem;">Consultation Details</h3>
+
+                    <div class="form-group">
+                        <label class="form-label">Consultation Type <span class="required">*</span></label>
+                        <select class="form-select" name="consultationType" required>
+                            <option value="">Select consultation type...</option>
+                            <option value="general">General Pet Care</option>
+                            <option value="nutrition">Nutrition & Diet</option>
+                            <option value="behavior">Behavior & Training</option>
+                            <option value="health">Health Concerns</option>
+                            <option value="grooming">Grooming Advice</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Preferred Date</label>
+                        <input type="date" class="form-input" name="preferredDate">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Preferred Time</label>
+                        <select class="form-select" name="preferredTime">
+                            <option value="">Select preferred time...</option>
+                            <option value="morning">Morning (9AM - 12PM)</option>
+                            <option value="afternoon">Afternoon (12PM - 5PM)</option>
+                            <option value="evening">Evening (5PM - 8PM)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Time Zone <span class="required">*</span></label>
+                        <select class="form-select" name="timeZone" required>
+                            <option value="">Select your time zone...</option>
+                            <option value="EST">Eastern Time (EST/EDT)</option>
+                            <option value="CST">Central Time (CST/CDT)</option>
+                            <option value="MST">Mountain Time (MST/MDT)</option>
+                            <option value="PST">Pacific Time (PST/PDT)</option>
+                            <option value="AKST">Alaska Time (AKST/AKDT)</option>
+                            <option value="HST">Hawaii Time (HST)</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Details & Questions <span class="required">*</span></label>
+                        <textarea class="form-textarea" name="details" required placeholder="Please describe what you'd like to discuss during the consultation..."></textarea>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div style="text-align: center; margin-top: 2rem;">
+                        <button type="submit" class="btn btn-primary" style="padding: 1rem 3rem; font-size: 1.1rem;">
+                            Submit Consultation Request
+                        </button>
+                    </div>
+
+                    <p style="text-align: center; margin-top: 1rem; color: #5A6C7D; font-size: 0.9rem;">
+                        <span class="required">*</span> Required fields
+                    </p>
+                </form>
+
+                <!-- Additional Info -->
+                <div style="margin-top: 3rem;">
+                    <h3 style="margin-bottom: 1rem; color: #2C3E50;">Consultation Options</h3>
+                    <div class="card-grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
+                        <div class="card">
+                            <div class="card-content">
+                                <h4 style="color: #4A7BA7; margin-bottom: 0.5rem;">📞 Phone Consultation</h4>
+                                <p class="card-description">Quick 15-30 minute calls for general questions and advice.</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-content">
+                                <h4 style="color: #4A7BA7; margin-bottom: 0.5rem;">💻 Video Consultation</h4>
+                                <p class="card-description">In-depth virtual sessions with screen sharing and visual demonstrations.</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-content">
+                                <h4 style="color: #4A7BA7; margin-bottom: 0.5rem;">🏥 In-Person Visit</h4>
+                                <p class="card-description">Comprehensive examination and care at our facility.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-column">
+                        <h3 class="footer-heading">Company</h3>
+                        <ul class="footer-links">
+                            <li><a href="#" class="footer-link">About</a></li>
+                            <li><a href="#" class="footer-link">Privacy Policy</a></li>
+                            <li><a href="#" class="footer-link">Accessibility Statement</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3 class="footer-heading">Help</h3>
+                        <ul class="footer-links">
+                            <li><a href="#" class="footer-link">FAQ</a></li>
+                            <li><a href="#" class="footer-link">Contact</a></li>
+                            <li><a href="consultation.html" class="footer-link">Consultation</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3 class="footer-heading">Follow Us</h3>
+                        <div class="footer-social">
+                            <a href="#" class="social-link" aria-label="Facebook">
+                                <span class="social-icon">f</span>
+                            </a>
+                            <a href="#" class="social-link" aria-label="Twitter">
+                                <span class="social-icon">𝕏</span>
+                            </a>
+                            <a href="#" class="social-link" aria-label="LinkedIn">
+                                <span class="social-icon">in</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p class="footer-text">© 2025 Paradigm Pet Professionals. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Simple form submission handler
+        document.getElementById('consultationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // In a real application, you would send this data to a server
+            alert('Thank you for your consultation request! We will contact you within 24 hours to confirm your appointment.');
+            
+            // Reset the form
+            this.reset();
+        });
+    </script>
+</body>
+</html>
