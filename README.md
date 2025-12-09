@@ -122,7 +122,7 @@ Typography, spacing, card layout, buttons, and imagery adhere to a consistent vi
 
 ---
 
-## 🛠 Technologies Used
+##  Technologies Used
 
 - HTML5
 - CSS3
@@ -148,7 +148,7 @@ Visit the [live demo](https://Ifesola.github.io/paradigm-pet-professionals-redes
 
 ---
 
-## 👤 Author
+##  Author
 
 **Ifesola Fadare**  
 WGU - User Experience Design  
