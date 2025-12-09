@@ -144,7 +144,7 @@ Typography, spacing, card layout, buttons, and imagery adhere to a consistent vi
 4. Navigate using the header links
 
 ### Option B: View Online
-Visit the [live demo](https://ifesola.github.io/Paradigm-Pet-Professionals-redesign/) hosted on GitHub Pages.
+Visit the [Case Study Live page](https://ifesola.github.io/Paradigm-Pet-Professionals-redesign/case-study/paradigm-case-study.html).
 
 ---
 
