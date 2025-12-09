@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Paradigm Pet Professionals - UX Case Study</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    :root {
+      --bg: #f5f7fa;
+      --bg-alt: #ffffff;
+      --primary: #4a7ba7;
+      --primary-soft: #e3effa;
+      --accent: #f9b233;
+      --text-main: #1f2a35;
+      --text-muted: #5a6c7d;
+      --border-soft: #d6dde6;
+      --shadow-soft: 0 10px 30px rgba(15, 23, 42, 0.08);
+      --radius-lg: 16px;
+      --radius-md: 12px;
+      --radius-sm: 8px;
+      --transition-fast: 0.2s ease;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      background: radial-gradient(circle at top left, #e3effa 0, #f5f7fa 50%, #f5f7fa 100%);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 3.5rem;
+    }
+
+    /* Top nav / header line */
+
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .top-bar span {
+      opacity: 0.85;
+    }
+
+    .pill {
+      border-radius: 999px;
+      padding: 0.25rem 0.75rem;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      background-color: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(8px);
+    }
+
+    .pill-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #22c55e;
+    }
+
+    /* Hero section */
+
+    .hero {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 35%, #334155 100%);
+      border-radius: 24px;
+      padding: 2.5rem 2.25rem 2.25rem;
+      color: #f9fafb;
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background:
+        radial-gradient(circle at top, rgba(59, 130, 246, 0.25), transparent 55%),
+        radial-gradient(circle at left, rgba(56, 189, 248, 0.18), transparent 50%);
+      opacity: 0.65;
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.2fr);
+      gap: 2rem;
+      align-items: center;
+      z-index: 1;
+    }
+
+    .hero-kicker {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: rgba(226, 232, 240, 0.85);
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-title {
+      font-size: 2.35rem;
+      line-height: 1.15;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.05rem;
+      color: rgba(226, 232, 240, 0.9);
+      margin-bottom: 1.75rem;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .meta-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      padding: 0.45rem 0.9rem;
+      border-radius: 999px;
+      background-color: rgba(15, 23, 42, 0.6);
+      border: 1px solid rgba(148, 163, 184, 0.6);
+    }
+
+    .meta-label {
+      opacity: 0.7;
+    }
+
+    .hero-card {
+      background: rgba(15, 23, 42, 0.8);
+      border-radius: 18px;
+      padding: 1.25rem 1.4rem;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      box-shadow: 0 18px 50px rgba(15, 23, 42, 0.65);
+    }
+
+    .hero-card-title {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: rgba(148, 163, 184, 0.9);
+      margin-bottom: 0.6rem;
+    }
+
+    .hero-card-body {
+      font-size: 0.9rem;
+      color: rgba(226, 232, 240, 0.95);
+      margin-bottom: 1.1rem;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 0.25rem;
+    }
+
+    .btn {
+      border-radius: 999px;
+      font-size: 0.9rem;
+      padding: 0.55rem 1.25rem;
+      border: 1px solid transparent;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: none;
+      color: inherit;
+      transition: background var(--transition-fast), transform var(--transition-fast),
+        box-shadow var(--transition-fast), border-color var(--transition-fast);
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #1f2933;
+      font-weight: 600;
+      box-shadow: 0 10px 25px rgba(249, 178, 51, 0.45);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 14px 30px rgba(249, 178, 51, 0.55);
+    }
+
+    .btn-ghost {
+      border-color: rgba(148, 163, 184, 0.5);
+      color: rgba(226, 232, 240, 0.95);
+      background-color: rgba(15, 23, 42, 0.7);
+    }
+
+    .btn-ghost:hover {
+      border-color: rgba(226, 232, 240, 0.9);
+      background-color: rgba(15, 23, 42, 0.9);
+    }
+
+    /* Layout grid */
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.3fr);
+      gap: 2rem;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.5rem;
+    }
+
+    .grid-2-balanced {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 2rem;
+    }
+
+    /* Sections */
+
+    .section {
+      margin-bottom: 2.5rem;
+    }
+
+    .section-header {
+      margin-bottom: 1.25rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+    }
+
+    .section-title {
+      font-size: 1.35rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      color: #0f172a;
+    }
+
+    .section-kicker {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .card {
+      background: var(--bg-alt);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-soft);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .card-soft {
+      background: #f9fafb;
+      border-radius: var(--radius-md);
+      padding: 1.25rem 1.35rem;
+      border: 1px solid rgba(203, 213, 225, 0.9);
+    }
+
+    .card-tag {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .card-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .card-text {
+      font-size: 0.94rem;
+      color: var(--text-muted);
+    }
+
+    /* Lists */
+
+    .bullet-list {
+      list-style: none;
+      padding-left: 0;
+      margin-top: 0.75rem;
+    }
+
+    .bullet-list li {
+      position: relative;
+      padding-left: 1.4rem;
+      margin-bottom: 0.4rem;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    .bullet-list li::before {
+      content: "•";
+      position: absolute;
+      left: 0.25rem;
+      top: 0;
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .tag {
+      font-size: 0.8rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      background-color: var(--primary-soft);
+      color: var(--primary);
+      border: 1px solid rgba(148, 163, 184, 0.6);
+    }
+
+    /* IA block */
+
+    .ia-box {
+      background: #0f172a;
+      color: #e5e7eb;
+      border-radius: var(--radius-lg);
+      padding: 1.25rem 1.5rem;
+      font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco,
+        Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 0.8rem;
+      line-height: 1.7;
+      border: 1px solid #1f2937;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .ia-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #9ca3af;
+      margin-bottom: 0.25rem;
+      display: block;
+    }
+
+    /* Footer */
+
+    .footer {
+      margin-top: 2.75rem;
+      padding-top: 1.75rem;
+      border-top: 1px solid rgba(148, 163, 184, 0.4);
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .footer a {
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+    }
+
+    @media (max-width: 900px) {
+      .hero-inner,
+      .grid-2,
+      .grid-2-balanced {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero {
+        padding: 2rem 1.5rem;
+      }
+
+      .hero-title {
+        font-size: 1.9rem;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page {
+        padding: 1.75rem 1rem 2.5rem;
+      }
+
+      .hero {
+        padding: 1.75rem 1.4rem;
+      }
+
+      .section {
+        margin-bottom: 2rem;
+      }
+
+      .grid-3 {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <!-- Top bar -->
+    <div class="top-bar">
+      <span>Case Study · UX / UI · Web</span>
+      <span class="pill">
+        <span class="pill-dot"></span>
+        In progress · Portfolio
+      </span>
+    </div>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-inner">
+        <div>
+          <div class="hero-kicker">UX Case Study</div>
+          <h1 class="hero-title">Paradigm Pet Professionals Website Redesign</h1>
+          <p class="hero-subtitle">
+            Evaluating and redesigning an evidence-based pet care consultation site
+            to better serve new pet owners and support business goals.
+          </p>
+          <div class="hero-meta">
+            <div class="meta-item">
+              <span class="meta-label">Role</span>
+              <span>UI/UX Designer</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Focus</span>
+              <span>Research · IA · Prototype</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Platform</span>
+              <span>Desktop Web</span>
+            </div>
+          </div>
+        </div>
+
+        <aside class="hero-card">
+          <div class="hero-card-title">Project Snapshot</div>
+          <p class="hero-card-body">
+            This project reimagines the Paradigm Pet Professionals website, moving from an
+            outdated, text-heavy experience to a structured, persona-driven design with a
+            clear path to virtual consultations.
+          </p>
+          <div class="hero-buttons">
+            <a class="btn btn-primary" href="https://ifesola.github.io/Paradigm-Pet-Professionals-redesign/" target="_blank" rel="noreferrer">
+              View Live Prototype
+            </a>
+            <a class="btn btn-ghost" href="https://github.com/Ifesola/Paradigm-Pet-Professionals-redesign/tree/main" target="_blank" rel="noreferrer">
+              View GitHub Repo
+            </a>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Overview -->
+    <section class="section">
+      <header class="section-header">
+        <h2 class="section-title">Overview</h2>
+        <p class="section-kicker">Understanding the context and goals</p>
+      </header>
+
+      <div class="grid-2">
+        <div class="card-soft">
+          <div class="card-tag">The Problem</div>
+          <p class="card-text">
+            Paradigm Pet Professionals provides virtual consultations and pet care guidance,
+            but their legacy website was difficult to navigate, text-heavy, and not aligned
+            with modern usability standards. New and prospective pet owners struggled to find
+            relevant content and a clear path to book a consultation.
+          </p>
+        </div>
+        <div class="card-soft">
+          <div class="card-tag">The Outcome</div>
+          <p class="card-text">
+            I redesigned the information architecture and created a multi-page interactive
+            desktop prototype that serves three core pet-owner personas (dog, cat, and bird)
+            while making the consultation process more visible, structured, and intuitive.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Goals -->
+    <section class="section">
+      <header class="section-header">
+        <h2 class="section-title">Goals</h2>
+        <p class="section-kicker">Balancing user needs and business objectives</p>
+      </header>
+
+      <div class="grid-2-balanced">
+        <div class="card">
+          <div class="card-tag">For Pet Owners</div>
+          <h3 class="card-title">Make care guidance easy to find and act on</h3>
+          <ul class="bullet-list">
+            <li>Help visitors quickly locate pet-specific information.</li>
+            <li>Break dense content into clear, scannable sections.</li>
+            <li>Offer an obvious, low-friction path to book help.</li>
+            <li>Provide a consistent layout and navigation across pages.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-tag">For Stakeholders</div>
+          <h3 class="card-title">Support growth and consultation bookings</h3>
+          <ul class="bullet-list">
+            <li>Increase visibility of virtual consultation services.</li>
+            <li>Organize content to support SEO and future expansion.</li>
+            <li>Strengthen brand trust with a clean, modern interface.</li>
+            <li>Ensure the design can scale to additional pet types.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Personas -->
+    <section class="section">
+      <header class="section-header">
+        <h2 class="section-title">Personas</h2>
+        <p class="section-kicker">Designing around real user needs</p>
+      </header>
+
+      <div class="grid-3">
+        <div class="card-soft">
+          <div class="card-tag">Persona 1</div>
+          <h3 class="card-title">New Dog Owner</h3>
+          <p class="card-text">
+            Needs guidance on nutrition, vaccination schedules, grooming routines,
+            and early behavior training. Often overwhelmed by information and unsure
+            which sources to trust.
+          </p>
+          <div class="tag-row">
+            <span class="tag">Diet & Exercise</span>
+            <span class="tag">Vet Care</span>
+            <span class="tag">Training</span>
+          </div>
+        </div>
+
+        <div class="card-soft">
+          <div class="card-tag">Persona 2</div>
+          <h3 class="card-title">Cat Owner</h3>
+          <p class="card-text">
+            Needs age-specific care guidance for kittens, adult cats, and seniors.
+            Looks for clear sections that match their cat’s current life stage and
+            explain what to monitor over time.
+          </p>
+          <div class="tag-row">
+            <span class="tag">Life Stages</span>
+            <span class="tag">Enrichment</span>
+          </div>
+        </div>
+
+        <div class="card-soft">
+          <div class="card-tag">Persona 3</div>
+          <h3 class="card-title">Bird Owner (New)</h3>
+          <p class="card-text">
+            Focuses on emotional and relational needs, including signs of depression,
+            boredom, or stress. Needs help knowing when to seek professional advice.
+          </p>
+          <div class="tag-row">
+            <span class="tag">Relational Needs</span>
+            <span class="tag">Behavior</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Information Architecture -->
+    <section class="section">
+      <header class="section-header">
+        <h2 class="section-title">Information Architecture</h2>
+        <p class="section-kicker">Restructuring the experience</p>
+      </header>
+
+      <div class="grid-2">
+        <div>
+          <div class="card-soft">
+            <div class="card-tag">Approach</div>
+            <p class="card-text">
+              The original site lacked clear pathways by pet type and buried the
+              consultation offering. I restructured the content into a concise
+              hierarchy that lets users self-select based on the pet they have and
+              move naturally toward requesting expert help.
+            </p>
+          </div>
+        </div>
+        <div>
+          <div class="ia-box">
+            <span class="ia-label">Site Map</span>
+<pre>
+Home
+│
+├── Dogs
+│     ├── Diet &amp; Exercise
+│     ├── Grooming &amp; Hygiene
+│     └── Health &amp; Vet Care
+│
+├── Cats
+│     ├── 0-4 Weeks
+│     ├── 4 Weeks-1 Year
+│     ├── 1-7 Years
+│     └── 7+ Years
+│
+├── Birds
+│     ├── Relational Needs
+│     ├── Signs of Depression
+│     └── When to Contact a Pexpert
+│
+└── Consultations
+      └── Request Consultation Form
+</pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Wireframes & Prototype -->
+    <section class="section">
+      <header class="section-header">
+        <h2 class="section-title">Wireframes & Prototype</h2>
+        <p class="section-kicker">From structure to interface</p>
+      </header>
+
+      <div class="grid-2-balanced">
+        <div class="card">
+          <div class="card-tag">Mid-Fidelity Wireframes</div>
+          <h3 class="card-title">Defining layout and content hierarchy</h3>
+          <p class="card-text">
+            I began with a mid-fidelity wireframe of the home page to lock in the
+            header, pet category cards, hero area, and footer. This allowed me to
+            validate the layout and content groupings before moving into a more
+            polished visual design.
+          </p>
+          <ul class="bullet-list">
+            <li>Clear primary nav with Home, Dogs, Cats, Birds, Consultations.</li>
+            <li>Central CTA to “Request Consultation.”</li>
+            <li>Dedicated cards for each pet owner persona.</li>
+            <li>Adoption resources grouped in a single section.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-tag">Interactive Prototype</div>
+          <h3 class="card-title">Bringing the experience to life</h3>
+          <p class="card-text">
+            The final prototype includes fully linked HTML/CSS pages for Home,
+            Dog Owners, Cat Owners, Bird Owners, and the Consultation Form.
+            Active navigation states and consistent page headers provide clear
+            positional awareness as users move through the site.
+          </p>
+          <ul class="bullet-list">
+            <li>Consistent layout and visual language across all pages.</li>
+            <li>Persona-specific content on each pet page.</li>
+            <li>Consultation form with all required fields.</li>
+            <li>Footer links for secondary navigation and trust-building.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Outcomes & Next Steps -->
+    <section class="section">
+      <header class="section-header">
+        <h2 class="section-title">Outcomes & Next Steps</h2>
+        <p class="section-kicker">What this redesign achieves</p>
+      </header>
+
+      <div class="grid-2-balanced">
+        <div class="card-soft">
+          <div class="card-tag">Outcomes</div>
+          <h3 class="card-title">A clearer, more focused experience</h3>
+          <p class="card-text">
+            The redesigned site aligns content, navigation, and visual design with the needs of
+            pet owners and the goals of Paradigm Pet Professionals. It offers a clear path
+            from learning about pet care to booking expert support.
+          </p>
+          <ul class="bullet-list">
+            <li>Improved scannability and content structure.</li>
+            <li>Stronger emphasis on virtual consultation services.</li>
+            <li>Expanded support for bird owners as a new persona.</li>
+            <li>Foundation for future growth and mobile optimization.</li>
+          </ul>
+        </div>
+
+        <div class="card-soft">
+          <div class="card-tag">Next Steps</div>
+          <h3 class="card-title">Future enhancements</h3>
+          <p class="card-text">
+            With the desktop prototype in place, the next steps would focus on validation
+            and expansion.
+          </p>
+          <ul class="bullet-list">
+            <li>Run usability tests with real pet owners.</li>
+            <li>Extend the design into a fully responsive mobile experience.</li>
+            <li>Integrate form submissions with a real scheduling system.</li>
+            <li>Create a design system for consistent future updates.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <span>© 2025 · Ifesola · UX / UI Design</span>
+      <span>
+        Contact: <a href="mailto:you@example.com">ifesola.fadare@outlook.com</a>
+      </span>
+    </footer>
+  </main>
+</body>
+</html>
