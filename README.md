@@ -118,7 +118,7 @@ Typography, spacing, card layout, buttons, and imagery adhere to a consistent vi
 
 **GitHub Repository:** [View on GitHub](https://github.com/Ifesola/Paradigm-Pet-Professionals-redesign)
 
-**Live Demo:** [https://Ifesola.github.io/paradigm-pet-professionals-redesign/](https://Ifesola.github.io/paradigm-pet-professionals-redesign/)
+**Live Demo:** https://ifesola.github.io/Paradigm-Pet-Professionals-redesign/
 
 ---
 
